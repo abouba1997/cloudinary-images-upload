@@ -22,7 +22,6 @@ const App = () => {
         setFetchLoading(true);
         const result = await axios.get(`${URL}/api/uploads`);
         // setImages(result?.data?.resources); // From cloudinary
-        console.log(result);
         setImages(result?.data);
       } catch (error) {
         console.log(error);
@@ -71,7 +70,7 @@ const App = () => {
       toast.success(result?.data?.message);
       // Refetch images after successful upload
       const resultImages = await axios.get(`${URL}/api/uploads`);
-      setImages(resultImages?.data?.resources);
+      setImages(resultImages?.data);
     } catch (error) {
       console.error(error);
       toast.info(error?.response?.data?.message);
